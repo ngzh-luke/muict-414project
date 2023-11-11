@@ -2,7 +2,6 @@ from decouple import config as envar
 from flask import Flask, Blueprint, render_template
 from datetime import timedelta
 
-TIMEOUT = timedelta(hours=1)
 PORT = envar("PORT", 5500)
 
 
@@ -17,8 +16,6 @@ def createApp():
     # Encrepted with Environment Variable
     app.config['SECRET_KEY'] = envar('search', 'searchsecret')
     app.config['REMEMBER_COOKIE_SECURE'] = True
-    # set session timeout (need to use with before_request() below)
-    # app.config['PERMANENT_SESSION_LIFETIME'] = TIMEOUT
     app.config['TIMEZONE'] = 'Asia/Bangkok'
     app.config['SERVER_NAME'] = DOMAIN or "indev.lukecreated.com"
 
@@ -52,8 +49,8 @@ class About():
         return str(self.version)
 
 
-systemInfoObject = About(version=0.1, status='development',
-                         build=20231111, version_note='initialized')
+systemInfoObject = About(version=0.2, status='development',
+                         build=20231111, version_note='core structure drafted')
 systemInfo = systemInfoObject.__str__()
 systemVersion = systemInfoObject.getSystemVersion()
 

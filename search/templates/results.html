@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} Search Results {% endblock %}</title>
+    <!-- import custom css
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="{{url_for('static', filename='search.css')}}"
+    /> -->
+    <!-- inherent root file -->
+    {% extends 'root.html' %}
+  </head>
+  {% block body %}
+  <body style="background-color: #49485aac">
+    {% if results %}
+    <div id="results" class="px-2 py-2 mx-3 my-3" align="center">
+      <h1
+        style="
+          font-size: xx-large;
+          color: navy;
+          font-weight: bold;
+          font-size: xx-large;
+        "
+      >
+        Search Results
+      </h1>
+      <table class="table table-warning table-hover border border-3">
+        <thead>
+          <tr>
+            <th scope="col">Contents</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for result in results %}
+          <tr class="table-success">
+            <th scope="row">1</th>
+            <td>{{result.content}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="mx-2 my-2" align="center" style="top: 50%">
+      <h1>Sorry, we could not found anything related.</h1>
+    </div>
+    {% endif %}
+  </body>
+  {% endblock %}
+</html>

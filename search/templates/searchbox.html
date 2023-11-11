@@ -4,9 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %} Search {% endblock %}</title>
+    <!-- import custom css -->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="{{url_for('static', filename='search.css')}}"
+    />
+    <!-- inherent root file -->
     {% extends 'root.html' %}
   </head>
-  <body>
-    {% block body %} {% endblock %}
+  {% block body %}
+  <body style="background-color: #49485aac">
+    <div id="cover">
+      <form method="POST" action="">
+        <div class="tb">
+          <div class="td">
+            <input type="text" placeholder="Search" required />
+          </div>
+          <div class="td" id="s-cover">
+            <button type="submit">
+              <div id="s-circle"></div>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   </body>
+  {% endblock %}
 </html>

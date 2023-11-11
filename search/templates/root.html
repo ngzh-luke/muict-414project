@@ -8,8 +8,20 @@
       href="https://www.lukecreated.com/asset/helpers/bootstrap5_min.css"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    {% block body %} {% endblock %}
-  </body>
+  <style>
+    html,
+    body {
+      font-family: "Mitr", sans-serif;
+    }
+  </style>
+  {% block body %}
+  <body></body>
+  {% endblock %}
 </html>
