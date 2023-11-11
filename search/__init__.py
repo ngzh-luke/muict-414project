@@ -1,6 +1,5 @@
 from decouple import config as envar
-from flask import Flask, Blueprint, render_template
-from datetime import timedelta
+from flask import Flask, Blueprint, render_template, request, redirect, url_for
 
 PORT = envar("PORT", 5500)
 
@@ -8,7 +7,7 @@ PORT = envar("PORT", 5500)
 try:
     DOMAIN = envar('DOMAIN_NAME')
 except:
-    DOMAIN = f"indev.lukecreated.com:{PORT}"
+    DOMAIN = f"127.0.0.1:{PORT}"
 
 
 def createApp():
@@ -49,8 +48,8 @@ class About():
         return str(self.version)
 
 
-systemInfoObject = About(version=0.2, status='development',
-                         build=20231111, version_note='core structure drafted')
+systemInfoObject = About(version=0.3, status='development',
+                         build=20231111, version_note='search implementation')
 systemInfo = systemInfoObject.__str__()
 systemVersion = systemInfoObject.getSystemVersion()
 
@@ -63,5 +62,9 @@ def root():
 # handle http 404 error
 def notFound(e):
     """ not found 404 """
-    return "Sorry, we don't found what you are looking for."
+    if (request.full_path == '/?') or (request.full_path == '/'):
+        # if it is root url, then redirect to the search page, otherwise return the error page
+        return redirect(url_for('search.searchHome'))
+    # request.full_path, request.url_root
+    return render_template('404.html', path=request.full_path)
 

@@ -16,10 +16,10 @@
   {% block body %}
   <body style="background-color: #49485aac">
     <div id="cover">
-      <form method="POST" action="">
+      <form method="GET" action="/results">
         <div class="tb">
           <div class="td">
-            <input type="text" placeholder="Search" required />
+            <input type="text" placeholder="Search" name="keyword" required />
           </div>
           <div class="td" id="s-cover">
             <button type="submit">
