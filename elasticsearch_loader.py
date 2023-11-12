@@ -1,10 +1,12 @@
+# Adapted from the code from Pisol Ruenin
+
 from elasticsearch import Elasticsearch, helpers
 import ndjson
 import argparse
 import uuid
-from decouple import config as envar
+from decouple import config as envar # import .env contents, you may COMMENT OUT this line
 
-ELASTIC_PASSWORD = envar("ELASTIC_PASSWORD","password")
+ELASTIC_PASSWORD = envar("ELASTIC_PASSWORD","password") # ASSIGN your password this line
 es = Elasticsearch( "https://localhost:9200", basic_auth=("elastic", ELASTIC_PASSWORD), verify_certs=False)
 
 parser = argparse.ArgumentParser()

@@ -1,4 +1,4 @@
-""" The application is developed by Kittipich "Luke" Aiumbhornsin
+""" The application is
 Created on Nov 11, 2023
 Run file of the application """
 
@@ -9,7 +9,8 @@ from time import localtime
 
 print(f"[{systemInfo}] @ ", {localtime()})
 
-envi = envar('ENVI', 'production')
+# envi = 'dev' # UNCOMMENT this line to change to dev mode
+envi = envar('ENVI', 'production') # COMMENT OUT this line to change to dev mode
 match envi:
 
     case 'production':

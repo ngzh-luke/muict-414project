@@ -4,7 +4,7 @@ from elasticsearch import Elasticsearch
 
 PORT = envar("PORT", 5500)
 
-ELASTIC_PASSWORD = envar("ELASTIC_PASSWORD","password")
+ELASTIC_PASSWORD = envar("ELASTIC_PASSWORD","password") # ASSIGN your password this line
 
 es = Elasticsearch("https://localhost:9200", http_auth=("elastic", ELASTIC_PASSWORD), verify_certs=False)
 
@@ -27,7 +27,6 @@ def createApp():
     app.register_blueprint(rootView, url_prefix='/dev')
     app.register_blueprint(search, url_prefix='/search')
     # app.register_blueprint(edit, url_prefix='/edit')
-    # app.register_blueprint(features, url_prefix='/')
     app.register_error_handler(404, notFound)
 
     return app
@@ -52,8 +51,8 @@ class About():
         return str(self.version)
 
 
-systemInfoObject = About(version=0.4, status='development',
-                         build=20231112, version_note='search is seems to works')
+systemInfoObject = About(version=0.41, status='development',
+                         build=20231113, version_note='improve instructions and readme')
 systemInfo = systemInfoObject.__str__()
 systemVersion = systemInfoObject.getSystemVersion()
 
