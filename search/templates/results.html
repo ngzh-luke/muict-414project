@@ -4,13 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %} Search Results {% endblock %}</title>
-    <!-- import custom css
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="{{url_for('static', filename='search.css')}}"
-    /> -->
-    <!-- inherent root file -->
     {% extends 'root.html' %}
   </head>
   {% block body %}
@@ -27,21 +20,34 @@
       >
         Search Results
       </h1>
-      <table class="table table-warning table-hover border border-3">
+      <table
+        class="table table-danger table-hover table-striped-columns border border-3"
+      >
         <thead>
           <tr>
+            <th scope="col">Page item order</th>
+            <th scope="col">Title</th>
             <th scope="col">Contents</th>
           </tr>
         </thead>
         <tbody>
-          {% for doc in results %}
+          <!-- https://stackoverflow.com/questions/12145434/how-to-output-loop-counter-in-python-jinja-template -->
+          {% for doc in results %}<!--  equals to for index, doc in enumerate(results) -->
+          {% if loop.index % 2 != 0 %}
           <tr class="table-success">
-            <th scope="row">1</th>
+            <th scope="row">{{loop.index}}</th>
             <td>{{doc['name']}}</td>
             <td>{{doc['description']}}</td>
             <td>{{doc['created']}}</td>
           </tr>
-          {% endfor %}
+          {% elif loop.index % 2 == 0 %}
+          <tr class="table-warning">
+            <th scope="row">{{loop.index}}</th>
+            <td>{{doc['name']}}</td>
+            <td>{{doc['description']}}</td>
+            <td>{{doc['created']}}</td>
+          </tr>
+          {% endif %} {% endfor %}
         </tbody>
       </table>
       <!-- page navigation bar adapted from Pisol Ruenin-->

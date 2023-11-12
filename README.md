@@ -11,7 +11,8 @@ Source code for ITCS414 search engine project at Faculty of ICT, Mahidol Univers
 ## Instructions
 
 - Navigate to the application directory and open it on the terminal.
-- Make sure your system has Python3 installed.
+- Make sure your system has Python3 and Elastic installed.
+- Run the local Elastic server on port `9200`.
 - Create the virtual environment and activate it or install the dependencies directly.
 - To install the dependencies, run the following command on the terminal: `pip install -r requirements.txt`
 - On the terminal, run `python main.py`

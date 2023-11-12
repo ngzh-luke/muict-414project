@@ -16,7 +16,7 @@
   {% block body %}
   <body style="background-color: #49485aac">
     <div id="cover">
-      <form method="GET" action="/results">
+      <form method="GET" action="{{url_for('search.searchResults')}}">
         <div class="tb">
           <div class="td">
             <input type="text" placeholder="Search" name="keyword" required />

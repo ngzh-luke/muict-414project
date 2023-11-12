@@ -1,8 +1,12 @@
 from decouple import config as envar
 from flask import Flask, Blueprint, render_template, request, redirect, url_for
+from elasticsearch import Elasticsearch
 
 PORT = envar("PORT", 5500)
 
+ELASTIC_PASSWORD = envar("ELASTIC_PASSWORD","password")
+
+es = Elasticsearch("https://localhost:9200", http_auth=("elastic", ELASTIC_PASSWORD), verify_certs=False)
 
 try:
     DOMAIN = envar('DOMAIN_NAME')
@@ -48,8 +52,8 @@ class About():
         return str(self.version)
 
 
-systemInfoObject = About(version=0.3, status='development',
-                         build=20231111, version_note='search implementation')
+systemInfoObject = About(version=0.4, status='development',
+                         build=20231112, version_note='search is seems to works')
 systemInfo = systemInfoObject.__str__()
 systemVersion = systemInfoObject.getSystemVersion()
 
