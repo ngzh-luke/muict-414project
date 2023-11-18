@@ -4,9 +4,11 @@ from elasticsearch import Elasticsearch
 
 PORT = envar("PORT", 5500)
 
-ELASTIC_PASSWORD = envar("ELASTIC_PASSWORD","password") # ASSIGN your password this line
+# ASSIGN your password this line
+ELASTIC_PASSWORD = envar("ELASTIC_PASSWORD", "password")
 
-es = Elasticsearch("https://localhost:9200", http_auth=("elastic", ELASTIC_PASSWORD), verify_certs=False)
+es = Elasticsearch("https://localhost:9200",
+                   http_auth=("elastic", ELASTIC_PASSWORD), verify_certs=False)
 
 try:
     DOMAIN = envar('DOMAIN_NAME')
@@ -51,18 +53,21 @@ class About():
         return str(self.version)
 
 
-systemInfoObject = About(version=0.41, status='development',
-                         build=20231113, version_note='improve instructions and readme')
+systemInfoObject = About(version=0.5, status='development',
+                         build=20231118, version_note='fixed page amount, new search btn added & lookup drafted')
 systemInfo = systemInfoObject.__str__()
 systemVersion = systemInfoObject.getSystemVersion()
 
 rootView = Blueprint('rootView', __name__)
+
 
 @rootView.route("/root-view", methods=['GET'])
 def root():
     return render_template('root.html')
 
 # handle http 404 error
+
+
 def notFound(e):
     """ not found 404 """
     if (request.full_path == '/?') or (request.full_path == '/'):
@@ -70,4 +75,3 @@ def notFound(e):
         return redirect(url_for('search.searchHome'))
     # request.full_path, request.url_root
     return render_template('404.html', path=request.full_path)
-

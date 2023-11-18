@@ -4,13 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      {% block title %} {% if title %}{{title}}{% else %}Result{% endif %}{%
-      endblock %}
+      {% block title %} {% if (title) and (result) %}{{title.upper()}}{% else
+      %}Search not found{% endif %}{% endblock %}
     </title>
     <!-- inherent root file -->
     {% extends 'root.html' %}
   </head>
   {% block body %}
-  <body></body>
+  <body>
+    {% if result %}
+    <div id="content" align="center" class="my-3 px-2">
+      <h1
+        style="
+          font-size: xx-large;
+          color: navy;
+          font-weight: bold;
+          font-size: xx-large;
+        "
+      >
+        {{title.upper()}}
+      </h1>
+    </div>
+    {% else %}
+    <div class="mx-2 my-2" align="center" style="top: 50%">
+      <h1 style="color: red">Sorry, we could not found anything related.</h1>
+    </div>
+    {% endif %}
+  </body>
   {% endblock %}
 </html>
