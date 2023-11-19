@@ -28,6 +28,7 @@
             <th scope="col">Page item order</th>
             <th scope="col">Title</th>
             <th scope="col">Contents</th>
+            <th scope="col">Details</th>
           </tr>
         </thead>
         <tbody>
@@ -38,14 +39,23 @@
             <th scope="row">{{loop.index}}</th>
             <td>{{doc['name']}}</td>
             <td>{{doc['description']}}</td>
-            <td>{{doc['created']}}</td>
+
+            <td>
+              <a href="/search/result/lookup/{{doc['ID']}}" target="_blank"
+                >link</a
+              >
+            </td>
           </tr>
           {% elif loop.index % 2 == 0 %}
           <tr class="table-warning">
             <th scope="row">{{loop.index}}</th>
             <td>{{doc['name']}}</td>
             <td>{{doc['description']}}</td>
-            <td>{{doc['created']}}</td>
+            <td>
+              <a href="/search/result/lookup/{{doc['ID']}}" target="_blank"
+                >link</a
+              >
+            </td>
           </tr>
           {% endif %} {% endfor %}
         </tbody>

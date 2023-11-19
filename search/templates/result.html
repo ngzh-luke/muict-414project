@@ -19,17 +19,59 @@
           font-size: xx-large;
           color: navy;
           font-weight: bold;
-          font-size: xx-large;
+          font-size: 300%;
         "
       >
         {{title.upper()}}
       </h1>
+      <div class="col col-8 mx-2 my-3">
+        {% for doc in result %}<!--  equals to for index, doc in enumerate(results) -->
+        <div align="end" style="font-size: small">Data ID: {{doc['id']}}</div>
+        <div align="end" style="font-size: small">Name: {{doc['name']}}</div>
+        <div>
+          <h4 style="color: orangered">Description</h4>
+          {{doc['description']}}
+        </div>
+        <div>
+          <h4 style="color: orangered">History</h4>
+          {{doc['history']}}
+        </div>
+        <div>
+          <h4 style="color: orangered">Region</h4>
+          {{doc['region']}}
+        </div>
+        <div>
+          <h4 style="color: orangered">Estimated cooking time (minutes)</h4>
+          {{doc['minutes']}}
+        </div>
+        <div>
+          <h4 style="color: orangered">Number of cooking steps</h4>
+          {{doc['n_step']}}
+        </div>
+        <div>
+          <h4 style="color: orangered">Number of ingredients</h4>
+          {{doc['n_ingredient']}}
+        </div>
+        <div>
+          <h4 style="color: orangered">Ingredients</h4>
+          {{doc['ingredient']}}
+        </div>
+        <div>
+          <h4 style="color: orangered">Steps</h4>
+          {{doc['step']}}
+        </div>
+
+        {% endfor %}
+      </div>
     </div>
     {% else %}
     <div class="mx-2 my-2" align="center" style="top: 50%">
       <h1 style="color: red">Sorry, we could not found anything related.</h1>
     </div>
     {% endif %}
+    <div class="my-1" align="center">
+      <a href="/search/"><button class="btn btn-success">New Search</button></a>
+    </div>
   </body>
   {% endblock %}
 </html>
