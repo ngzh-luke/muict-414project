@@ -31,7 +31,7 @@ def searchResults():
             'multi_match': {
 
                 'query': keyword,
-                'fields': ['name', 'description', 'ID'],
+                'fields': ['name', 'description', 'ID', 'region', 'history', 'step', 'ingredient', 'minutes'],
                 'fuzziness': 'AUTO'
             }
         }
@@ -45,7 +45,7 @@ def searchResults():
     # es.index(index=index2, body=body, id=2)
 
     res = es.search(index=[index], body=body)
-    hits = [{'name': doc['_source']['name'], 'description': doc['_source']['description'], 'ID': doc['_source']['ID']
+    hits = [{'name': doc['_source']['name'], 'description': doc['_source']['description'], 'ID': doc['_source']['ID'], 'region': doc['_source']['region']
              } for doc in res['hits']['hits']]  # calculate the total pages of returned results
     totalPages = math.ceil((res['hits']['total']['value'])/page_size)
     return render_template('results.html', keyword=keyword, results=hits, page_no=page_no, totalPages=totalPages)

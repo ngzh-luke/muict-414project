@@ -27,7 +27,8 @@
           <tr>
             <th scope="col">Page item order</th>
             <th scope="col">Title</th>
-            <th scope="col">Contents</th>
+            <th scope="col">Descriptions</th>
+            <th scope="col">Region</th>
             <th scope="col">Details</th>
           </tr>
         </thead>
@@ -39,6 +40,7 @@
             <th scope="row">{{loop.index}}</th>
             <td>{{doc['name']}}</td>
             <td>{{doc['description']}}</td>
+            <td>{{doc['region']}}</td>
 
             <td>
               <a href="/search/result/lookup/{{doc['ID']}}" target="_blank"
@@ -51,6 +53,7 @@
             <th scope="row">{{loop.index}}</th>
             <td>{{doc['name']}}</td>
             <td>{{doc['description']}}</td>
+            <td>{{doc['region']}}</td>
             <td>
               <a href="/search/result/lookup/{{doc['ID']}}" target="_blank"
                 >link</a
