@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %} Search Results {% endblock %}</title>
+    <title>
+      {% block title %} Search Results {% if kw %}for "{{kw}}"{% endif %}{%
+      endblock %}
+    </title>
     {% extends 'root.html' %}
   </head>
   {% block body %}
@@ -18,7 +21,7 @@
           font-size: xx-large;
         "
       >
-        Search Results
+        Search Results {% if kw %}for "{{kw}}"{% endif %}
       </h1>
       <table
         class="table table-danger table-hover table-striped-columns border border-3"

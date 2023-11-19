@@ -48,7 +48,7 @@ def searchResults():
     hits = [{'name': doc['_source']['name'], 'description': doc['_source']['description'], 'ID': doc['_source']['ID'], 'region': doc['_source']['region']
              } for doc in res['hits']['hits']]  # calculate the total pages of returned results
     totalPages = math.ceil((res['hits']['total']['value'])/page_size)
-    return render_template('results.html', keyword=keyword, results=hits, page_no=page_no, totalPages=totalPages)
+    return render_template('results.html', keyword=keyword, results=hits, page_no=page_no, totalPages=totalPages, kw=keyword)
 
 
 # show indenpendent (selected/clicked) result
