@@ -18,7 +18,7 @@ Source code for ITCS414 search engine project at Faculty of ICT, Mahidol Univers
 - Edit the file named `elasticsearch_loader.py` as following instructed:
   - Comment out `line 7`.
   - Assign your __Elasticsearch password__ to the variable at `line 9`.
-- On the terminal, run `python elasticsearch_loader.py --filename food.json --index food`.
+- On the terminal, run `python elasticsearch_loader.py --file food.json --index food`.
   - Please note that you might repeat this step multiple times as the amount of the `.json` index files in the directory.
 - Create the virtual environment and activate it or install the dependencies directly.
 - To install the dependencies, run the following command on the terminal: `pip install -r requirements.txt`.
@@ -40,4 +40,4 @@ Source code for ITCS414 search engine project at Faculty of ICT, Mahidol Univers
 
 -----
 
-__last updated: Nov 20, 2023 at 00:57 by Kittipich__
+__last updated: Nov 20, 2023 at 00:59 by Kittipich__
