@@ -36,7 +36,8 @@ Source code for ITCS414 search engine project at Faculty of ICT, Mahidol Univers
 - `/search` : Home page of the application; show search box
 - `/results` : The path for query and will return the search results to user, if no match return not found result
 - `/result/lookup/<int:id>` : The path for specific search result; show the whole information for particular result where `<id>` is the reference to the particular document
+- `[other path]` : Should return 404 not found page
 
 -----
 
-__last updated: Nov 20, 2023 at 00:17 by Kittipich__
+__last updated: Nov 20, 2023 at 00:22 by Kittipich__
