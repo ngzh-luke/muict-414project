@@ -17,7 +17,7 @@ Source code for ITCS414 search engine project at Faculty of ICT, Mahidol Univers
 - Run the local Elastic server on port `9200`.
 - Edit the file named `elasticsearch_loader.py` as following instructed:
   - Comment out `line 7`.
-  - Assign your __Elasticsearch password__ to the variable at `line 8`.
+  - Assign your __Elasticsearch password__ to the variable at `line 9`.
 - On the terminal, run `python elasticsearch_loader.py --filename <.json> --index <index_name>`.
   - Please note that you might repeat this step multiple times as the amount of the `.json` index files in the directory.
 - Create the virtual environment and activate it or install the dependencies directly.
@@ -32,10 +32,11 @@ Source code for ITCS414 search engine project at Faculty of ICT, Mahidol Univers
 
 ### Path guideline
 
-- `/` : Home page of the application; show search box
+- `/` : This path is going to be redirected to `/search` path
+- `/search` : Home page of the application; show search box
 - `/results` : The path for query and will return the search results to user, if no match return not found result
 - `/result/lookup/<int:id>` : The path for specific search result; show the whole information for particular result where `<id>` is the reference to the particular document
 
 -----
 
-__last updated: Nov 20, 2023 at 00:14 by Kittipich__
+__last updated: Nov 20, 2023 at 00:17 by Kittipich__
