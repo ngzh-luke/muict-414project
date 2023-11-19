@@ -40,4 +40,4 @@ Source code for ITCS414 search engine project at Faculty of ICT, Mahidol Univers
 
 -----
 
-__last updated: Nov 20, 2023 at 00:27 by Kittipich__
+__last updated: Nov 20, 2023 at 00:29 by Kittipich__
